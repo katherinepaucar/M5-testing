@@ -45,5 +45,14 @@ describe('./src/common/components/confirmation-dialog/confirmation-dialog.compon
     expect(propsDialog.onAccept).toHaveBeenCalledTimes(1);
     expect(propsDialog.onClose).toHaveBeenCalledTimes(1);
   });
+  it('should  not open dialog with isOpen a false', () => {
+    const props = {
+      ...propsDialog,
+      isOpen: false,
+    };
+    render(<ConfirmationDialogComponent {...props} />);
+    const dialogElement = screen.queryAllByRole('dialog');
 
+    expect(dialogElement.length).toBe(0);
+  });
 });
