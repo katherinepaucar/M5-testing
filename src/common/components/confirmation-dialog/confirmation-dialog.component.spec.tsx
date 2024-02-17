@@ -42,8 +42,16 @@ describe('./src/common/components/confirmation-dialog/confirmation-dialog.compon
       name: propsDialog.labels.acceptButton,
     });
     await userEvent.click(acceptButton);
+    
     expect(propsDialog.onAccept).toHaveBeenCalledTimes(1);
     expect(propsDialog.onClose).toHaveBeenCalledTimes(1);
+  });
+  it('should show child content when dialog is open', () => {
+    render(<ConfirmationDialogComponent {...propsDialog} />);
+    const dialogElement = screen.getByRole('dialog');
+    const textChild = within(dialogElement).getByText('child Data');
+
+    expect(textChild).toBeInTheDocument();
   });
   it('should  not open dialog with isOpen a false', () => {
     const props = {
