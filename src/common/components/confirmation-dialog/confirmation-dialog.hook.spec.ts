@@ -6,7 +6,7 @@ import {
 import { useConfirmationDialog } from './confirmation-dialog.hook';
 import { Lookup } from 'common/models';
 describe('./src/common/components/confirmation-dialog/confirmation-dialog.hook.ts', () => {
-  it('useConfirmationDialog hook should return deafult values when it calls', () => {
+  it('useConfirmationDialog hook should return default values when it calls', () => {
     const objectLookUp: Lookup = { id: '', name: '' };
     const { result } = renderHook(() => useConfirmationDialog());
 
